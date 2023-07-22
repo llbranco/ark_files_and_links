@@ -1,0 +1,317 @@
+; BaseDeviceProfiles.ini
+; X:\SteamLibrary\steamapps\common\ARK\Engine\Config\
+; 
+; INSTRUCTIONS
+; First make a copy of your default "BaseDeviceProfiles.ini",  rename it to something like "BaseDeviceProfiles_original.ini" or even zip it to keep it safe.
+; replace for this one and enjoy
+; 
+; Adding a semicolon (;) in front of a line of code will disable it, removing the semicolon (;) will enable it.
+;
+; INSTRUÇÕES
+; Primeiro faça uma copia do seu arquivo "BaseDeviceProfiles.ini", renomeiei para algo como "BaseDeviceProfiles_original.ini" ou crie um zip para mante-lo seguro.
+; substitua o original por esse e aproveite
+;
+; Edited by:
+; ██╗     ██╗     ██████╗ ██████╗  █████╗ ███╗   ██╗ ██████╗ ██████╗ 
+; ██║     ██║     ██╔══██╗██╔══██╗██╔══██╗████╗  ██║██╔════╝██╔═══██╗
+; ██║     ██║     ██████╔╝██████╔╝███████║██╔██╗ ██║██║     ██║   ██║
+; ██║     ██║     ██╔══██╗██╔══██╗██╔══██║██║╚██╗██║██║     ██║   ██║
+; ███████╗███████╗██████╔╝██║  ██║██║  ██║██║ ╚████║╚██████╗╚██████╔╝
+; ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ 
+;                                                                   
+; THIS IS A FARMING INI FILE (KINDA WORK FOR PVP TOO)
+; ESSA É UMA INI PARA FARM (MEIO QUE FUNCIONA PRA PVP TBM)
+
+
++[DeviceProfiles]
++DeviceProfileNameAndTypes=Windows,Windows
++DeviceProfileNameAndTypes=WindowsNoEditor,WindowsNoEditor
++DeviceProfileNameAndTypes=WindowsServer,WindowsServer
++DeviceProfileNameAndTypes=IOS,IOS
++DeviceProfileNameAndTypes=iPad2,IOS
++DeviceProfileNameAndTypes=iPad3,IOS
++DeviceProfileNameAndTypes=iPad4,IOS
++DeviceProfileNameAndTypes=iPadAir,IOS
++DeviceProfileNameAndTypes=iPadMini,IOS
++DeviceProfileNameAndTypes=iPadMini2,IOS
++DeviceProfileNameAndTypes=iPhone4,IOS
++DeviceProfileNameAndTypes=iPhone4S,IOS
++DeviceProfileNameAndTypes=iPhone5,IOS
++DeviceProfileNameAndTypes=iPhone5S,IOS
++DeviceProfileNameAndTypes=iPodTouch5,IOS
++DeviceProfileNameAndTypes=iPhone6,IOS
++DeviceProfileNameAndTypes=iPhone6Plus,IOS
++DeviceProfileNameAndTypes=Android,Android
++DeviceProfileNameAndTypes=PS4,PS4
++DeviceProfileNameAndTypes=XboxOne,XboxOne
++DeviceProfileNameAndTypes=HTML5,HTML5
++DeviceProfileNameAndTypes=Mac,Mac
++DeviceProfileNameAndTypes=MacNoEditor,MacNoEditor
++DeviceProfileNameAndTypes=MacServer,MacServer
++DeviceProfileNameAndTypes=WinRT,WinRT
++DeviceProfileNameAndTypes=Linux,Linux
++DeviceProfileNameAndTypes=LinuxNoEditor,LinuxNoEditor
++DeviceProfileNameAndTypes=LinuxServer,LinuxServer
+
+[Windows DeviceProfile]
+DeviceType=Windows
+BaseProfileName=
+
+
++CVars=foliage.UseOcclusionType=0
++CVars=ShowFloatingDamageText=True
++CVars=FogDensity=0.0
++CVars=FrameRateCap=240
++CVars=FrameRateMinimum=144
++CVars=MaxES2PixelShaderAdditiveComplexityCount=45
++CVars=MaxPixelShaderAdditiveComplexityCount=128
++CVars=MaxSmoothedFrameRate=144
++CVars=MinDesiredFrameRate=70
++CVars=MinSmoothedFrameRate=5
++CVars=NearClipPlane=12.0
++CVars=ShowFlag.AmbientOcclusion=0
++CVars=ShowFlag.AntiAliasing=0
++CVars=ShowFlag.Atmosphere=0
++CVars=ShowFlag.AtmosphericFog=0
++CVars=ShowFlag.AudioRadius=0
++CVars=ShowFlag.BSP=0
++CVars=ShowFlag.BSPSplit=0
++CVars=ShowFlag.BSPTriangles=0
++CVars=ShowFlag.BillboardSprites=0
++CVars=ShowFlag.Brushes=0
++CVars=ShowFlag.BuilderBrush=0
++CVars=ShowFlag.CameraAspectRatioBars=0
++CVars=ShowFlag.CameraFrustums=0
++CVars=ShowFlag.CameraImperfections=0
++CVars=ShowFlag.CameraInterpolation=0
++CVars=ShowFlag.CameraSafeFrames=0
++CVars=ShowFlag.CompositeEditorPrimitives=0
++CVars=ShowFlag.Constraints=0
++CVars=ShowFlag.Cover=0
++CVars=ShowFlag.Decals=0
++CVars=ShowFlag.DeferredLighting=0
++CVars=ShowFlag.DepthOfField=0
++CVars=ShowFlag.Diffuse=0
++CVars=ShowFlag.DirectLighting=0
++CVars=ShowFlag.DirectionalLights=0
++CVars=ShowFlag.DistanceCulledPrimitives=0
++CVars=ShowFlag.DistanceFieldAO=0
++CVars=ShowFlag.DynamicShadows=0
++CVars=ShowFlag.Editor=0
++CVars=ShowFlag.EyeAdaptation=0
++CVars=ShowFlag.Fog=1
++CVars=ShowFlag.Game=0
++CVars=ShowFlag.LOD=0
++CVars=ShowFlag.Landscape=0
++CVars=ShowFlag.LargeVertices=0
++CVars=ShowFlag.LensFlares=0
++CVars=ShowFlag.LevelColoration=0
++CVars=ShowFlag.LightComplexity=0
++CVars=ShowFlag.LightInfluences=0
++CVars=ShowFlag.LightMapDensity=0
++CVars=ShowFlag.LightRadius=0
++CVars=ShowFlag.LightShafts=0
++CVars=ShowFlag.Lighting=0
++CVars=ShowFlag.LpvLightingOnly=0
++CVars=ShowFlag.Materials=0
++CVars=ShowFlag.MeshEdges=0
++CVars=ShowFlag.MotionBlur=0
++CVars=ShowFlag.OnScreenDebug=0
++CVars=ShowFlag.OverrideDiffuseAndSpecular=0
++CVars=ShowFlag.Paper2DSprites=0
++CVars=ShowFlag.Particles=0
++CVars=ShowFlag
++CVars=FX.MaxCPUParticlesPerEmitter=1
++CVars=t.maxfps=144
+[WindowsNoEditor DeviceProfile]
+DeviceType=WindowsNoEditor
+BaseProfileName=Windows
+
+[WindowsServer DeviceProfile]
+DeviceType=WindowsServer
+BaseProfileName=Windows
+
+[IOS DeviceProfile]
+DeviceType=IOS
+BaseProfileName=
++CVars=r.BloomQuality=0
++CVars=r.DepthOfFieldQuality=0
++CVars=r.LightShaftQuality=0
++CVars=r.RefractionQuality=0
+
+[iPad2 DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.RenderTargetSwitchWorkaround=1
+
+[iPad3 DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.RenderTargetSwitchWorkaround=1
+
+[iPad4 DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.RenderTargetSwitchWorkaround=1
+
+[iPadAir DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.BloomQuality=1
+
+[iPadMini DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.RenderTargetSwitchWorkaround=1
+
+[iPadMini2 DeviceProfile]
+DeviceType=IOS
+BaseProfileName=iPadAir
+
+[iPhone4 DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.RenderTargetSwitchWorkaround=1
+
+[iPhone4S DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.RenderTargetSwitchWorkaround=1
+
+[iPhone5 DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.RenderTargetSwitchWorkaround=1
+
+[iPhone5S DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.MobileContentScaleFactor=2
++CVars=r.BloomQuality=1
++CVars=r.DepthOfFieldQuality=1
++CVars=r.LightShaftQuality=1
+
+[iPodTouch5 DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.RenderTargetSwitchWorkaround=1
+
+[iPhone6 DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.MobileContentScaleFactor=0
++CVars=r.BloomQuality=1
++CVars=r.DepthOfFieldQuality=1
++CVars=r.LightShaftQuality=1
+
+[iPhone6Plus DeviceProfile]
+DeviceType=IOS
+BaseProfileName=IOS
++CVars=r.MobileContentScaleFactor=0
++CVars=r.BloomQuality=1
++CVars=r.DepthOfFieldQuality=1
++CVars=r.LightShaftQuality=1
+
+[Android DeviceProfile]
+DeviceType=Android
+BaseProfileName=
++CVars=r.MobileContentScaleFactor=1
++CVars=r.BloomQuality=0
++CVars=r.DepthOfFieldQuality=0
++CVars=r.LightShaftQuality=0
++CVars=r.RefractionQuality=0
+
+[Android_Low DeviceProfile]
+DeviceType=Android
+BaseProfileName=Android
++CVars=r.MobileContentScaleFactor=0.5
+
+[Android_Mid DeviceProfile]
+DeviceType=Android
+BaseProfileName=Android
++CVars=r.BloomQuality=1
++CVars=r.MobileContentScaleFactor=0.8
+
+[Android_High DeviceProfile]
+DeviceType=Android
+BaseProfileName=Android
++CVars=r.BloomQuality=1
++CVars=r.DepthOfFieldQuality=1
++CVars=r.LightShaftQuality=1
++CVars=r.MobileContentScaleFactor=1.0
+
+[Android_Unrecognized DeviceProfile]
+DeviceType=Android
+BaseProfileName=Android_Mid
+
+[Android_Adreno320 DeviceProfile]
+DeviceType=Android
+BaseProfileName=Android_Mid
+
+;This offset needs to be set for the mosaic fallback to work on Galaxy S4 (SAMSUNG-IGH-I337)
+;+CVars=r.DemosaicVposOffset=0.5
+
+[Android_Adreno330 DeviceProfile]
+DeviceType=Android
+BaseProfileName=Android_High
+
+[Android_Adreno330_Ver53 DeviceProfile]
+DeviceType=Android
+BaseProfileName=Android_Adreno330
++CVars=r.DisjointTimerQueries=1
+
+[PS4 DeviceProfile]
+DeviceType=PS4
+BaseProfileName=
+
+[XboxOne DeviceProfile]
+DeviceType=XboxOne
+BaseProfileName=
+; we output 10:10:10, not 8:8:8 so we don't need color quantization
++CVars=r.TonemapperQuality=0
+; For SSAO we rely on TemporalAA (with a randomized sample pattern over time) so we can use less samples
++CVars=r.AmbientOcclusionSampleSetQuality=0
+; less passes, and no upsampling as even upsampling costs some performance
++CVars=r.AmbientOcclusionLevels=1
+; larger radius to compensate for fewer passes
++CVars=r.AmbientOcclusionRadiusScale=2
+
+
+[HTML5 DeviceProfile]
+DeviceType=HTML5
+BaseProfileName=
++CVars=r.RefractionQuality=0
+
+[Mac DeviceProfile]
+DeviceType=Mac
+BaseProfileName=
+
+[MacNoEditor DeviceProfile]
+DeviceType=MacNoEditor
+BaseProfileName=Mac
+
+[MacServer DeviceProfile]
+DeviceType=MacServer
+BaseProfileName=Mac
+
+[WinRT DeviceProfile]
+DeviceType=WinRT
+BaseProfileName=
+
+[Linux DeviceProfile]
+DeviceType=Linux
+BaseProfileName=
+MeshLODSettings=
+TextureLODSettings=
+
+[LinuxNoEditor DeviceProfile]
+DeviceType=LinuxNoEditor
+BaseProfileName=Linux
+MeshLODSettings=
+TextureLODSettings=
+
+[LinuxServer DeviceProfile]
+DeviceType=LinuxServer
+BaseProfileName=Linux
+MeshLODSettings=
+TextureLODSettings=
