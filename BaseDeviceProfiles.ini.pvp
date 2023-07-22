@@ -1,3 +1,5 @@
+; PVP HARD INI FILE
+;
 ; BaseDeviceProfiles.ini
 ; X:\SteamLibrary\steamapps\common\ARK\Engine\Config\
 ; 
@@ -19,8 +21,8 @@
 ; ███████╗███████╗██████╔╝██║  ██║██║  ██║██║ ╚████║╚██████╗╚██████╔╝
 ; ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ 
 ;                                                                   
-; THIS IS A FARMING INI FILE (KINDA WORK FOR PVP TOO)
-; ESSA É UMA INI PARA FARM (MEIO QUE FUNCIONA PRA PVP TBM)
+; THIS IS A PVP INI FILE (DON'T USE IF YOU WANT TO FARM)
+; ESSA É UMA INI PARA PVP (NÃO USE SE FOR FARMAR)
 
 
 +[DeviceProfiles]
