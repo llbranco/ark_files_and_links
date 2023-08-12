@@ -10,7 +10,7 @@
 ; Adding a semicolon (;) in front of a line of code will disable it, removing the semicolon (;) will enable it.
 ;
 ; INSTRUÇÕES
-; Primeiro faça uma copia do seu arquivo "BaseDeviceProfiles.ini", renomeiei para algo como "BaseDeviceProfiles_original.ini" ou crie um zip para mante-lo seguro.
+; Primeiro faça uma copia do seu arquivo "BaseDeviceProfiles.ini", renomeie para algo como "BaseDeviceProfiles_original.ini" ou crie um zip para mante-lo seguro.
 ; substitua o original por esse e aproveite
 ;
 ; Edited by:
@@ -23,6 +23,9 @@
 ;                                                                   
 ; THIS IS A FARMING INI FILE (KINDA WORK FOR PVP TOO)
 ; ESSA É UMA INI PARA FARM (MEIO QUE FUNCIONA PRA PVP TBM)
+;
+; update 12/ago/23
+
 
 [DeviceProfiles]
 +DeviceProfileNameAndTypes=Windows,Windows
@@ -58,7 +61,17 @@
 DeviceType=Windows
 BaseProfileName=
  
- ;	uncomment if you want to enable
+; soft ini for performance
+;+CVars=FrameRateCap=144
+;+CVars=FrameRateMinimum=60
+;+CVars=ShowFlag.StaticMeshes=0
+;+CVars=ShowFlag.VisualizeLPV=0
+;+CVars=FogDensity=0.0
+;+CVars=r.BloomQuality=0
+;+CVars=r.LightShafts=0
+;+CVars=FX.MaxCPUParticlesPerEmitter=1
+ 
+;	uncomment if you want to enable
 ;	For Xray on Railgun and Tek Helmet Sensors: Remove the following command
 ;	IMPORTANT Removing it, will bring back Zplant flash, Xplant, Beer effect ...
 ; +CVars=ShowFlag.Materials=0
@@ -66,13 +79,17 @@ BaseProfileName=
 ;	enable tek helmet outlines if commented
 ;	but other things like zplant, xplant, beer etc may will work
 ; +CVars=r.CustomDepth=0
+
+;Disable Adaptive Exposure
++CVars=r.EyeAdaptationQuality=0
  
- 
+; use this to dont see the foliage
 +CVars=foliage.UseOcclusionType=0
+
 +CVars=ShowFloatingDamageText=True
 +CVars=FogDensity=0.0
 +CVars=FrameRateCap=144
-+CVars=FrameRateMinimum=144
++CVars=FrameRateMinimum=60
 +CVars=MaxES2PixelShaderAdditiveComplexityCount=45
 +CVars=MaxPixelShaderAdditiveComplexityCount=128
 +CVars=MaxSmoothedFrameRate=144
@@ -124,6 +141,7 @@ BaseProfileName=
 +CVars=ShowFlag.LightShafts=0
 +CVars=ShowFlag.Lighting=0
 +CVars=ShowFlag.LpvLightingOnly=0
+;+CVars=ShowFlag.Materials=0
 +CVars=ShowFlag.MeshEdges=0
 +CVars=ShowFlag.MotionBlur=0
 +CVars=ShowFlag.OnScreenDebug=0
@@ -147,6 +165,7 @@ BaseProfileName=
 +CVars=ShowFlag.SkyLighting=0
 +CVars=ShowFlag.Snap=0
 +CVars=ShowFlag.Specular=0
++CVars=ShowFlag.Splines=0
 +CVars=ShowFlag.SpotLights=0
 +CVars=ShowFlag.StaticMeshes=0
 +CVars=ShowFlag.StationaryLightOverlap=0
@@ -167,7 +186,7 @@ BaseProfileName=
 +CVars=ShowFlag.VisualizeDOF=0
 +CVars=ShowFlag.VisualizeDistanceFieldAO=0
 +CVars=ShowFlag.VisualizeHDR=0
-ShowFlag.VisualizeLPV=0
++CVars=ShowFlag.VisualizeLPV=0
 +CVars=ShowFlag.VisualizeLightCulling=0
 +CVars=ShowFlag.VisualizeMotionBlur=0
 +CVars=ShowFlag.VisualizeOutOfBoundsPixels=0
@@ -208,6 +227,7 @@ ShowFlag.VisualizeLPV=0
 +CVars=r.BloomQuality=0
 +CVars=r.ClearWithExcludeRects=0
 +CVars=r.CompileShadersForDevelopment=0
+;+CVars=r.CustomDepth=0
 +CVars=r.DefaultFeature.AmbientOcclusion=False
 +CVars=r.DefaultFeature.AntiAliasing=0
 +CVars=r.DefaultFeature.AutoExposure=False
@@ -229,6 +249,7 @@ ShowFlag.VisualizeLPV=0
 +CVars=r.ReflectionEnvironment=0
 +CVars=r.RefractionQuality=0
 +CVars=r.SSAOSmartBlur=0
++CVars=r.SSR=0
 +CVars=r.SSR.Quality=0
 +CVars=r.SSS.SampleSet=0
 +CVars=r.SSS.Scale=0
@@ -247,6 +268,7 @@ ShowFlag.VisualizeLPV=0
 +CVars=r.UpsampleQuality=0
 +CVars=r.ViewDistanceScale=0
 +CVars=r.oneframethreadlag=1 
+
 [WindowsNoEditor DeviceProfile]
 DeviceType=WindowsNoEditor
 BaseProfileName=Windows
