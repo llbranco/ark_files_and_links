@@ -58,7 +58,14 @@
 DeviceType=Windows
 BaseProfileName=
  
- 
+ ;	uncomment if you want to enable
+;	For Xray on Railgun and Tek Helmet Sensors: Remove the following command
+;	IMPORTANT Removing it, will bring back Zplant flash, Xplant, Beer effect ...
+; +CVars=ShowFlag.Materials=0
+
+;	enable tek helmet outlines if commented
+;	but other things like zplant, xplant, beer etc may will work
+; +CVars=r.CustomDepth=0
  
  
 +CVars=foliage.UseOcclusionType=0
@@ -117,7 +124,6 @@ BaseProfileName=
 +CVars=ShowFlag.LightShafts=0
 +CVars=ShowFlag.Lighting=0
 +CVars=ShowFlag.LpvLightingOnly=0
-+CVars=ShowFlag.Materials=0
 +CVars=ShowFlag.MeshEdges=0
 +CVars=ShowFlag.MotionBlur=0
 +CVars=ShowFlag.OnScreenDebug=0
@@ -202,7 +208,6 @@ ShowFlag.VisualizeLPV=0
 +CVars=r.BloomQuality=0
 +CVars=r.ClearWithExcludeRects=0
 +CVars=r.CompileShadersForDevelopment=0
-+CVars=r.CustomDepth=0
 +CVars=r.DefaultFeature.AmbientOcclusion=False
 +CVars=r.DefaultFeature.AntiAliasing=0
 +CVars=r.DefaultFeature.AutoExposure=False
