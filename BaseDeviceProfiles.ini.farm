@@ -1,7 +1,9 @@
 ; FARM HARD INI FILE
 ;
 ; BaseDeviceProfiles.ini
+; somewhere like this path
 ; X:\SteamLibrary\steamapps\common\ARK\Engine\Config\
+; X:\Program Files(x86)\steam\steamapps\common\ARK\Engine\Config\
 ; 
 ; INSTRUCTIONS
 ; First make a copy of your default "BaseDeviceProfiles.ini",  rename it to something like "BaseDeviceProfiles_original.ini" or even zip it to keep it safe.
@@ -24,8 +26,8 @@
 ; THIS IS A FARMING INI FILE (KINDA WORK FOR PVP TOO)
 ; ESSA É UMA INI PARA FARM (MEIO QUE FUNCIONA PRA PVP TBM)
 ;
-; update 12/ago/23
-
+; update 08/ago/24
+; more comments and some improvements in the code
 
 [DeviceProfiles]
 +DeviceProfileNameAndTypes=Windows,Windows
@@ -62,17 +64,51 @@ DeviceType=Windows
 BaseProfileName=
  
 ; soft ini for performance
-;+CVars=FrameRateCap=144
-;+CVars=FrameRateMinimum=60
 ;+CVars=ShowFlag.StaticMeshes=0
 ;+CVars=ShowFlag.VisualizeLPV=0
 ;+CVars=FogDensity=0.0
+;+CVars=ShowFlag.Fog=0
+;+CVars=ShowFlag.Atmosphere=0
+;+CVars=ShowFlag.AtmosphericFog=0
 ;+CVars=r.BloomQuality=0
 ;+CVars=r.LightShafts=0
 ;+CVars=FX.MaxCPUParticlesPerEmitter=1
- 
-;	uncomment if you want to enable
-;	For Xray on Railgun and Tek Helmet Sensors: Remove the following command
+
+; framerate
++CVars=FrameRateCap=60
++CVars=MinDesiredFrameRate=30
++CVars=FrameRateMinimum=30
++CVars=r.oneframethreadlag=1 
+
+; General improvements, never remove this section
++CVars=bFirstRun=False
++CVars=bSmoothFrameRate=true
++CVars=MaxES2PixelShaderAdditiveComplexityCount=45
++CVars=MaxPixelShaderAdditiveComplexityCount=128
+
+; Vsync thing https://forums.unrealengine.com/t/what-exactly-does-smooth-frame-rate-do/292365/5
+; +CVars=MinSmoothedFrameRate=5
+; +CVars=MaxSmoothedFrameRate=60
+; +CVars=SmoothedFrameRateRange=(LowerBound=(Type="ERangeBoundTypes::Inclusive",Value=60),UpperBound=(Type="ERangeBoundTypes::Exclusive",Value=70))
+
+;	aberration light
+;	Remove these lines and it should fix weird textures.. but might mess with the lighting.
+; 	remember to edit in the whole file
+; +CVars=ShowFlag.LightComplexity=0
+; +CVars=ShowFlag.LightShafts=0
+; +CVars=ShowFlag.ShaderComplexity=0
+; +CVars=ShowFlag.Refraction=0
+
+;	See if this helps - Add 
+; +CVars=r.SimpleDynamicLighting=1
+
+; fucking fog stuff
++CVars=ShowFlag.Atmosphere=0
++CVars=ShowFlag.AtmosphericFog=0
++CVars=ShowFlag.Fog=0
++CVars=FogDensity=0.0
+
+;	uncomment this section for tek railgun/helmet/bloodstalker vision to work, makes water not see through
 ;	IMPORTANT Removing it, will bring back Zplant flash, Xplant, Beer effect ...
 ; +CVars=ShowFlag.Materials=0
 
@@ -80,26 +116,39 @@ BaseProfileName=
 ;	but other things like zplant, xplant, beer etc may will work
 ; +CVars=r.CustomDepth=0
 
-;Disable Adaptive Exposure
+;	Disable Adaptive Exposure
 +CVars=r.EyeAdaptationQuality=0
  
-; use this to dont see the foliage
+;	use this to dont see the foliage
+;Remove this line for normal foliage view distance, have number as 2 for shorter than intended foliage view distance, or 0 for foliage, pearls and aberration rocks to be invisible
 +CVars=foliage.UseOcclusionType=0
 
+;	Disable the stuff below to fix the black/noisy snow will get add back alot of light from the game losing fps
++CVars=ShowFlag.LightComplexity=0
++CVars=ShowFlag.LightShafts=0
++CVars=ShowFlag.ShaderComplexity=0
++CVars=ShowFlag.Refraction=0
++CVars=ShowFlag.SeparateTranslucency=0
+
+;	Removes plant x, z and beer screen effect
++CVars=ShowFlag.Particles=0
+
+;	Makes screen clear when knocked out
++CVars=ShowFlag.Vignette=0
+
+;	Motion Blur
++CVars=ShowFlag.MotionBlur=0
++CVars=r.MotionBlurQuality=0
++CVars=ShowFlag.VisualizeMotionBlur=0
++CVars=r.DefaultFeature.MotionBlur=False
+
+;   general stuff
++CVars=r.ClearWithExcludeRects=2
++CVars=r.Quality=0
 +CVars=ShowFloatingDamageText=True
-+CVars=FogDensity=0.0
-+CVars=FrameRateCap=144
-+CVars=FrameRateMinimum=60
-+CVars=MaxES2PixelShaderAdditiveComplexityCount=45
-+CVars=MaxPixelShaderAdditiveComplexityCount=128
-+CVars=MaxSmoothedFrameRate=144
-+CVars=MinDesiredFrameRate=70
-+CVars=MinSmoothedFrameRate=5
 +CVars=NearClipPlane=12.0
 +CVars=ShowFlag.AmbientOcclusion=0
 +CVars=ShowFlag.AntiAliasing=0
-+CVars=ShowFlag.Atmosphere=0
-+CVars=ShowFlag.AtmosphericFog=0
 +CVars=ShowFlag.AudioRadius=0
 +CVars=ShowFlag.BSP=0
 +CVars=ShowFlag.BSPSplit=0
@@ -127,23 +176,18 @@ BaseProfileName=
 +CVars=ShowFlag.DynamicShadows=0
 +CVars=ShowFlag.Editor=0
 +CVars=ShowFlag.EyeAdaptation=0
-+CVars=ShowFlag.Fog=1
 +CVars=ShowFlag.Game=0
 +CVars=ShowFlag.LOD=0
 +CVars=ShowFlag.Landscape=0
 +CVars=ShowFlag.LargeVertices=0
 +CVars=ShowFlag.LensFlares=0
 +CVars=ShowFlag.LevelColoration=0
-+CVars=ShowFlag.LightComplexity=0
 +CVars=ShowFlag.LightInfluences=0
 +CVars=ShowFlag.LightMapDensity=0
 +CVars=ShowFlag.LightRadius=0
-+CVars=ShowFlag.LightShafts=0
 +CVars=ShowFlag.Lighting=0
 +CVars=ShowFlag.LpvLightingOnly=0
-;+CVars=ShowFlag.Materials=0
 +CVars=ShowFlag.MeshEdges=0
-+CVars=ShowFlag.MotionBlur=0
 +CVars=ShowFlag.OnScreenDebug=0
 +CVars=ShowFlag.OverrideDiffuseAndSpecular=0
 +CVars=ShowFlag.Paper2DSprites=0
@@ -156,9 +200,7 @@ BaseProfileName=
 +CVars=ShowFlag.PreviewShadowsIndicator=0
 +CVars=ShowFlag.ReflectionEnvironment=0
 +CVars=ShowFlag.ReflectionOverride=0
-+CVars=ShowFlag.Refraction=0
 +CVars=ShowFlag.SelectionOutline=0
-+CVars=ShowFlag.ShaderComplexity=0
 +CVars=ShowFlag.ShadowFrustums=0
 +CVars=ShowFlag.ShadowsFromEditorHiddenActors=0
 +CVars=ShowFlag.SkeletalMeshes=0
@@ -180,7 +222,6 @@ BaseProfileName=
 +CVars=ShowFlag.Translucency=0
 +CVars=ShowFlag.VectorFields=0
 +CVars=ShowFlag.VertexColors=0
-+CVars=ShowFlag.Vignette=0
 +CVars=ShowFlag.VisualizeAdaptiveDOF=0
 +CVars=ShowFlag.VisualizeBuffer=0
 +CVars=ShowFlag.VisualizeDOF=0
@@ -188,13 +229,11 @@ BaseProfileName=
 +CVars=ShowFlag.VisualizeHDR=0
 +CVars=ShowFlag.VisualizeLPV=0
 +CVars=ShowFlag.VisualizeLightCulling=0
-+CVars=ShowFlag.VisualizeMotionBlur=0
 +CVars=ShowFlag.VisualizeOutOfBoundsPixels=0
 +CVars=ShowFlag.VisualizeSSR=0
 +CVars=ShowFlag.VisualizeSenses=0
 +CVars=ShowFlag.VolumeLightingSamples=0
 +CVars=ShowFlag.Wireframe=0
-+CVars=SmoothedFrameRateRange=(LowerBound=(Type="ERangeBoundTypes::Inclusive",Value=60),UpperBound=(Type="ERangeBoundTypes::Exclusive",Value=70))
 +CVars=TEXTUREGROUP_Character=(MinLODSize=1,MaxLODSize=4,LODBias=0,MinMagFilter=aniso,MipFilter=point)
 +CVars=TEXTUREGROUP_CharacterNormalMap=(MinLODSize=1,MaxLODSize=4,LODBias=0,MinMagFilter=aniso,MipFilter=point)
 +CVars=TEXTUREGROUP_CharacterSpecular=(MinLODSize=1,MaxLODSize=4,LODBias=0,MinMagFilter=aniso,MipFilter=point)
@@ -219,21 +258,16 @@ BaseProfileName=
 +CVars=TEXTUREGROUP_WorldNormalMap=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
 +CVars=TEXTUREGROUP_WorldSpecular=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
 +CVars=bDisablePhysXHardwareSupport=True
-+CVars=bFirstRun=False
-+CVars=bSmoothFrameRate=true
 +CVars=r.AOTrimOldRecordsFraction=0
 +CVars=r.AmbientOcclusionLevels=0
-+CVars=r.Atmosphere=0
 +CVars=r.BloomQuality=0
 +CVars=r.ClearWithExcludeRects=0
 +CVars=r.CompileShadersForDevelopment=0
-;+CVars=r.CustomDepth=0
 +CVars=r.DefaultFeature.AmbientOcclusion=False
 +CVars=r.DefaultFeature.AntiAliasing=0
 +CVars=r.DefaultFeature.AutoExposure=False
 +CVars=r.DefaultFeature.Bloom=False
 +CVars=r.DefaultFeature.LensFlare=False
-+CVars=r.DefaultFeature.MotionBlur=False
 +CVars=r.DepthOfFieldQuality=0
 +CVars=r.DetailMode=0
 +CVars=r.EarlyZPass=0
@@ -244,7 +278,6 @@ BaseProfileName=
 +CVars=r.LightShaftQuality=0
 +CVars=r.LightShafts=0
 +CVars=r.MaxAnisotropy=0
-+CVars=r.MotionBlurQuality=0
 +CVars=r.PostProcessAAQuality=0
 +CVars=r.ReflectionEnvironment=0
 +CVars=r.RefractionQuality=0
@@ -267,7 +300,7 @@ BaseProfileName=
 +CVars=r.TrueSkyQuality=0
 +CVars=r.UpsampleQuality=0
 +CVars=r.ViewDistanceScale=0
-+CVars=r.oneframethreadlag=1 
+
 
 [WindowsNoEditor DeviceProfile]
 DeviceType=WindowsNoEditor
