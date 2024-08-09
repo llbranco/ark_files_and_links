@@ -27,7 +27,7 @@
 ; ESSA É UMA INI PARA FARM (MEIO QUE FUNCIONA PRA PVP TBM)
 ;
 ; update 08/ago/24
-; more comments and some improvements in the code
+
 
 [DeviceProfiles]
 +DeviceProfileNameAndTypes=Windows,Windows
@@ -67,7 +67,6 @@ BaseProfileName=
 ;+CVars=ShowFlag.StaticMeshes=0
 ;+CVars=ShowFlag.VisualizeLPV=0
 ;+CVars=FogDensity=0.0
-;+CVars=ShowFlag.Fog=0
 ;+CVars=ShowFlag.Atmosphere=0
 ;+CVars=ShowFlag.AtmosphericFog=0
 ;+CVars=r.BloomQuality=0
@@ -105,8 +104,10 @@ BaseProfileName=
 ; fucking fog stuff
 +CVars=ShowFlag.Atmosphere=0
 +CVars=ShowFlag.AtmosphericFog=0
-+CVars=ShowFlag.Fog=0
 +CVars=FogDensity=0.0
+;fog zero disable dedicated storage box numbers
++CVars=ShowFlag.Fog=1
+
 
 ;	uncomment this section for tek railgun/helmet/bloodstalker vision to work, makes water not see through
 ;	IMPORTANT Removing it, will bring back Zplant flash, Xplant, Beer effect ...
@@ -128,7 +129,7 @@ BaseProfileName=
 +CVars=ShowFlag.LightShafts=0
 +CVars=ShowFlag.ShaderComplexity=0
 +CVars=ShowFlag.Refraction=0
-+CVars=ShowFlag.SeparateTranslucency=0
+;+CVars=ShowFlag.SeparateTranslucency=0
 
 ;	Removes plant x, z and beer screen effect
 +CVars=ShowFlag.Particles=0
