@@ -66,19 +66,23 @@ DeviceType=Windows
 BaseProfileName=
  
 ; soft ini for performance
-;+CVars=ShowFlag.StaticMeshes=0
-;+CVars=ShowFlag.VisualizeLPV=0
-;+CVars=FogDensity=0.0
-;+CVars=ShowFlag.Atmosphere=0
-;+CVars=ShowFlag.AtmosphericFog=0
-;+CVars=r.BloomQuality=0
++CVars=ShowFlag.StaticMeshes=0
++CVars=ShowFlag.VisualizeLPV=0
++CVars=FogDensity=0.0
++CVars=ShowFlag.Atmosphere=0
++CVars=ShowFlag.AtmosphericFog=0
++CVars=r.BloomQuality=0
 
+; show linked structures, just a try
++CVars=DebugStructures=1
++CVars=t.DebugStructures=1
++CVars=r.DebugStructures=1
 
 ; framerate
-+CVars=t.maxfps=60
-+CVars=FrameRateCap=60
-+CVars=MinDesiredFrameRate=30
-+CVars=FrameRateMinimum=30
++CVars=t.maxfps=144
++CVars=FrameRateCap=144
++CVars=MinDesiredFrameRate=75
++CVars=FrameRateMinimum=75
 +CVars=r.oneframethreadlag=1 
 
 ; General improvements, never remove this section
@@ -89,7 +93,7 @@ BaseProfileName=
 
 ; Vsync thing https://forums.unrealengine.com/t/what-exactly-does-smooth-frame-rate-do/292365/5
 ;+CVars=MinSmoothedFrameRate=5
-;+CVars=MaxSmoothedFrameRate=60
+;+CVars=MaxSmoothedFrameRate=144
 ;+CVars=SmoothedFrameRateRange=(LowerBound=(Type="ERangeBoundTypes::Inclusive",Value=60),UpperBound=(Type="ERangeBoundTypes::Exclusive",Value=70))
 
 ;   fucking fog stuff
@@ -102,7 +106,7 @@ BaseProfileName=
 
 
 ;   Disable to fix Tek railgun, Tek helmet, Snow Owl and Bloodtslaker vision
-;   Warning: when the fix is activated plant species Z and beer will affect your vision, clear water vision will also be removed
+;   Warning: when the fix is activated plant species Z and beer will affect your vision, clear ; water vision will also be removed
 ;
 ;   If you start seeing every build black, just comment those 2 lines
 ;+CVars=ShowFlag.Materials=0
@@ -320,7 +324,6 @@ BaseProfileName=
 +CVars=TEXTUREGROUP_World=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
 +CVars=TEXTUREGROUP_WorldNormalMap=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
 +CVars=TEXTUREGROUP_WorldSpecular=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
-
 
 [WindowsNoEditor DeviceProfile]
 DeviceType=WindowsNoEditor
