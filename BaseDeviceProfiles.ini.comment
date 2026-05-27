@@ -1,0 +1,1576 @@
+; =============================================================================
+; BaseDeviceProfiles.ini.comment — MERGE COMPLETO (.farm + .pvp) + EXTRAS COMUNIDADE
+; PT: União documentada. Comentários com ; não afetam o jogo. +CVars = ativo.
+; EN: Full documented merge. Semicolon comments are ignored by the game. +CVars = active.
+; Path: ARK/Engine/Config/BaseDeviceProfiles.ini
+; Toggle: add ; before +CVars to disable that line.
+; =============================================================================
+;
+; Edited by:
+; ██╗     ██╗     ██████╗ ██████╗  █████╗ ███╗   ██╗ ██████╗ ██████╗
+; ██║     ██║     ██╔══██╗██╔══██╗██╔══██╗████╗  ██║██╔════╝██╔═══██╗
+; ██║     ██║     ██████╔╝██████╔╝███████║██╔██╗ ██║██║     ██║   ██║
+; ██║     ██║     ██╔══██╗██╔══██╗██╔══██║██║╚██╗██║██║     ██║   ██║
+; ███████╗███████╗██████╔╝██║  ██║██║  ██║██║ ╚████║╚██████╗╚██████╔╝
+; ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝
+;
+; MERGE: BaseDeviceProfiles.ini.farm + BaseDeviceProfiles.ini.pvp + Pastebin/gist community
+; DOC: 2026-05-19
+;
+[DeviceProfiles]
++DeviceProfileNameAndTypes=Windows,Windows
++DeviceProfileNameAndTypes=WindowsNoEditor,WindowsNoEditor
+
+; =============================================================================
+; GAMEPLAY VISUALS — QUICK REFERENCE / EFEITOS DE GAMEPLAY
+; =============================================================================
+; | Effect / Efeito                    | Visible (descomente/ON)          | OFF (=0) farm/PvP |
+; |------------------------------------|----------------------------------|-------------------|
+; | Beer / Plant Species Z blur        | NÃO use Materials=0 no general   | Particles=0       |
+; | Snow Owl / Tek helmet / Bloodstalk | Materials=0 + r.CustomDepth=0    | (comentado farm)  |
+; | Supply drop vertical beam          | Splines=1 ou 2                   | Splines=0         |
+; | Tek Transmitter sky beam           | Splines=1, PointLights=1         | Splines=0         |
+; | Flamethrower / fire / smoke        | Particles=1, FX particles 8-16   | Particles=0, FX=1 |
+; | Gun tracers / impact decals        | Particles=1, Decals=1            | Decals=0          |
+; | Poison wyvern / basilisk cloud     | FX.MaxCPUParticles 8-16          | FX=1              |
+; | Parasaur red enemy ping            | GameplayDebug=1 ou 2             | GameplayDebug=0   |
+; | Structure placement overlay        | GameplayDebug=1 ou 2             | GameplayDebug=0   |
+; | Water surface / mana beam          | GameplayDebug=2 (gist)           | GameplayDebug=0   |
+; =============================================================================
+
+
+[Windows DeviceProfile]
+DeviceType=Windows
+BaseProfileName=
+ 
+; [EN] Soft potato block — distant meshes/atmosphere/bloom reduced.
+; [PT] Bloco soft potato — reduz malhas distantes, atmosfera e bloom.
+; soft ini for performance
+; --- ShowFlag.StaticMeshes = 0 ---
+; PT: Malhas estáticas.
+; EN: Static meshes.
+; ARK: Mundo/props.
+; ON/OFF: 0 soft+general.
+; FX: 
++CVars=ShowFlag.StaticMeshes=0
+; --- ShowFlag.VisualizeLPV = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeLPV=0
+; --- FogDensity = 0.0 ---
+; PT: Densidade névoa.
+; EN: Fog density.
+; ARK: Visibilidade.
+; ON/OFF: 0.0 ambos.
+; FX: 
++CVars=FogDensity=0.0
+; --- ShowFlag.Atmosphere = 0 ---
+; PT: Atmosfera/céu.
+; EN: Atmosphere.
+; ARK: Haze.
+; ON/OFF: 0 potato.
+; FX: Duplicado no farm.
++CVars=ShowFlag.Atmosphere=0
+; --- ShowFlag.AtmosphericFog = 0 ---
+; PT: Névoa atmosférica.
+; EN: Atmospheric fog.
+; ARK: Neblina mapa.
+; ON/OFF: 0.
+; FX: 
++CVars=ShowFlag.AtmosphericFog=0
+; --- r.BloomQuality = 0 ---
+; PT: Bloom.
+; EN: Bloom.
+; ARK: Brilho.
+; ON/OFF: 0 múltiplas vezes farm.
+; FX: 
++CVars=r.BloomQuality=0
+
+; [EN] Structure debug for building.
+; [PT] Debug de estruturas para construir.
+; show linked structures, just a try
+; --- DebugStructures = 1 ---
+; PT: Debug estruturas linkadas.
+; EN: Linked structure debug.
+; ARK: Snaps build.
+; ON/OFF: 1 farm.
+; FX: 
++CVars=DebugStructures=1
+; --- t.DebugStructures = 1 ---
+; PT: Debug estruturas (t.).
+; EN: Linked structure debug (t.).
+; ARK: 
+; ON/OFF: 1.
+; FX: 
++CVars=t.DebugStructures=1
+; --- r.DebugStructures = 1 ---
+; PT: Debug estruturas (r.).
+; EN: Linked structure debug (r.).
+; ARK: 
+; ON/OFF: 1.
+; FX: 
++CVars=r.DebugStructures=1
+
+; [EN] FPS caps and thread lag.
+; [PT] Caps de FPS e lag de thread.
+; framerate
+; --- t.maxfps = 144 ---
+; PT: Teto FPS Unreal.
+; EN: Unreal max FPS.
+; ARK: Cap de quadros.
+; ON/OFF: 144 farm / 144 pvp.
+; FX: Alinhe FrameRateCap.
++CVars=t.maxfps=144
+; --- FrameRateCap = 144 ---
+; PT: Cap FPS do ARK.
+; EN: ARK FPS cap.
+; ARK: Limite render.
+; ON/OFF: 144 farm, 240 pvp.
+; FX: Acima do Hz do monitor: tearing.
+; MERGE: farm=144 | pvp=240 — active line uses FARM value; see ALTERNATES for PVP.
++CVars=FrameRateCap=144
+; --- MinDesiredFrameRate = 75 ---
+; PT: FPS desejado mínimo.
+; EN: Min desired FPS.
+; ARK: Smooth FR.
+; ON/OFF: 75 farm, 70 pvp.
+; FX: 
+; MERGE: farm=75 | pvp=70 — active line uses FARM value; see ALTERNATES for PVP.
++CVars=MinDesiredFrameRate=75
+; --- FrameRateMinimum = 75 ---
+; PT: FPS mínimo.
+; EN: Minimum FPS.
+; ARK: Piso.
+; ON/OFF: 75 farm, 144 pvp.
+; FX: 
+; MERGE: farm=75 | pvp=144 — active line uses FARM value; see ALTERNATES for PVP.
++CVars=FrameRateMinimum=75
+; --- r.oneframethreadlag = 1 ---
+; PT: 1 frame lag render thread.
+; EN: 1-frame render lag.
+; ARK: FPS vs input.
+; ON/OFF: 1=ON mais FPS.
+; FX: 0=input mais seco.
++CVars=r.oneframethreadlag=1 
+
+; General improvements, never remove this section
+; --- bFirstRun = False ---
+; PT: Primeira execução.
+; EN: First run flag.
+; ARK: Setup.
+; ON/OFF: False.
+; FX: 
++CVars=bFirstRun=False
+; --- bSmoothFrameRate = true ---
+; PT: Suavização de FPS.
+; EN: Frame smoothing.
+; ARK: Frame pacing.
+; ON/OFF: true.
+; FX: 
++CVars=bSmoothFrameRate=true
+; --- MaxES2PixelShaderAdditiveComplexityCount = 45 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=MaxES2PixelShaderAdditiveComplexityCount=45
+; --- MaxPixelShaderAdditiveComplexityCount = 128 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=MaxPixelShaderAdditiveComplexityCount=128
+
+; Vsync thing https://forums.unrealengine.com/t/what-exactly-does-smooth-frame-rate-do/292365/5
+; [EN] FPS caps and thread lag.
+; [PT] Caps de FPS e lag de thread.
+;+CVars=MinSmoothedFrameRate=5
+; [EN] FPS caps and thread lag.
+; [PT] Caps de FPS e lag de thread.
+;+CVars=MaxSmoothedFrameRate=144
+; [EN] FPS caps and thread lag.
+; [PT] Caps de FPS e lag de thread.
+;+CVars=SmoothedFrameRateRange=(LowerBound=(Type="ERangeBoundTypes::Inclusive",Value=60),UpperBound=(Type="ERangeBoundTypes::Exclusive",Value=70))
+
+; [EN] Fog/atmosphere — PVP may use ShowFlag.Fog=1 instead.
+; [PT] Névoa — no PVP pode usar ShowFlag.Fog=1.
+;   fucking fog stuff
+; --- ShowFlag.Atmosphere = 0 ---
+; PT: Atmosfera/céu.
+; EN: Atmosphere.
+; ARK: Haze.
+; ON/OFF: 0 potato.
+; FX: Duplicado no farm.
++CVars=ShowFlag.Atmosphere=0
+; --- ShowFlag.AtmosphericFog = 0 ---
+; PT: Névoa atmosférica.
+; EN: Atmospheric fog.
+; ARK: Neblina mapa.
+; ON/OFF: 0.
+; FX: 
++CVars=ShowFlag.AtmosphericFog=0
+; --- FogDensity = 0.0 ---
+; PT: Densidade névoa.
+; EN: Fog density.
+; ARK: Visibilidade.
+; ON/OFF: 0.0 ambos.
+; FX: 
++CVars=FogDensity=0.0
+;   set 1 to show dedicated storage box numbers
+;   set 0 to hide fog
+;+CVars=ShowFlag.Fog=0
+
+
+;   Disable to fix Tek railgun, Tek helmet, Snow Owl and Bloodtslaker vision
+;   Warning: when the fix is activated plant species Z and beer will affect your vision, clear ; water vision will also be removed
+;
+;   If you start seeing every build black, just comment those 2 lines
+;+CVars=ShowFlag.Materials=0
+;+CVars=r.CustomDepth=0
+
+;	Disable Adaptive Exposure
+; --- r.EyeAdaptationQuality = 0 ---
+; PT: Auto-exposição.
+; EN: Eye adaptation.
+; ARK: Caves.
+; ON/OFF: 0.
+; FX: 
++CVars=r.EyeAdaptationQuality=0
+
+; [EN] Smoke, flamethrower, beer screen tied to particles.
+; [PT] Fumaça, lança-chamas, blur beer ligados a partículas.
+;   Enable to reduce a lot of particles (smoke grenade, flamethrower smoke, etc.)
+;   Warning: Poison wyvern and basilisk poison balls are harder to see
+; --- FX.MaxCPUParticlesPerEmitter = 1 ---
+; PT: Partículas CPU/emissor.
+; EN: CPU particles/emitter.
+; ARK: Fogo, fumaça, veneno, beer FX.
+; ON/OFF: 1 farm/pvp; gist usa 0-16.
+; FX: 1 esconde veneno.
++CVars=FX.MaxCPUParticlesPerEmitter=1
+
+; [EN] Foliage — may hide metal nodes/rocks.
+; [PT] Folhagem — pode esconder metal/rochas.
+; Enable to remove leaves and bushes
+; Warning: Also remove some world meshes (rocks, metal nodes, crystals, etc.)
+; have number as 2 for shorter than intended foliage view distance, or 0 for foliage, pearls and aberration rocks to be invisible
+; --- foliage.UseOcclusionType = 0 ---
+; PT: Oclusão folhagem.
+; EN: Foliage occlusion.
+; ARK: Árvores, nodes.
+; ON/OFF: 0 farm/pvp.
+; FX: 2=view distance curta.
++CVars=foliage.UseOcclusionType=0
+
+; Need to be disabled if the above variable is enabled, otherwise can be enabled
+; --- ShowFlag.VolumeLightingSamples = 0 ---
+; PT: Volume lighting samples.
+; EN: Volume lighting.
+; ARK: Folhagem.
+; ON/OFF: 0 com UseOcclusionType=0.
+; FX: 
++CVars=ShowFlag.VolumeLightingSamples=0
+
+; [EN] GameplayDebug=0 removes water overlay + more.
+; [PT] GameplayDebug=0 remove superfície água e mais.
+; Enable to remove water surface
+; Warning: Also remove a lot of things (structure placement overlay, parasaur red detections, weapon projectiles, dino projectiles, loot crate beam, etc.)
+;+CVars=ShowFlag.GameplayDebug=0
+
+; [EN] Splines=0 removes drop/transmitter beams.
+; [PT] Splines=0 remove feixe drop e transmitter.
+; Enable to remove fog on island completely
+; Warning: Also remove a lot of things (parasaur red detections, weapon projectiles, dino projectiles, loot crate beam, etc.)
+;   also removes drop/loot crate beam, trasmitter light
+;+CVars=ShowFlag.Splines=0
+
+; [EN] Snow fix — SeparateTranslucency optional.
+; [PT] Fix neve preta — SeparateTranslucency opcional.
+;	Disable the stuff below to fix the black/noisy snow will get add back alot of light from the game losing fps
+; Warning: when the fix is activated a lot of lighting and shadow effects will be added back, reducing the overall visibility and performance
+; --- ShowFlag.LightComplexity = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LightComplexity=0
+; --- ShowFlag.LightShafts = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LightShafts=0
+; --- ShowFlag.ShaderComplexity = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.ShaderComplexity=0
+; --- ShowFlag.Refraction = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Refraction=0
+; --- r.RefractionQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.RefractionQuality=0
+;   kinda related to snow too
+;+CVars=ShowFlag.SeparateTranslucency=0
+
+; [EN] Particles=0 removes beer blur AND drop beams.
+; [PT] Particles=0 remove blur beer E feixes drop.
+;	Removes plant x, z and beer screen effect
+;   also removes drop/loot crate beam, trasmitter light
+;+CVars=ShowFlag.Particles=0
+
+; [EN] Clear screen when KO.
+; [PT] Tela clara quando nocauteado.
+;	Makes screen clear when knocked out
+; --- ShowFlag.Vignette = 0 ---
+; PT: Vinheta bordas.
+; EN: Vignette.
+; ARK: Efeito KO.
+; ON/OFF: 0 tela clara.
+; FX: 
++CVars=ShowFlag.Vignette=0
+
+;	Motion Blur
+; --- ShowFlag.MotionBlur = 0 ---
+; PT: Motion blur.
+; EN: Motion blur.
+; ARK: Movimento.
+; ON/OFF: 0.
+; FX: 
++CVars=ShowFlag.MotionBlur=0
+; --- r.MotionBlurQuality = 0 ---
+; PT: Qualidade motion blur.
+; EN: Motion blur quality.
+; ARK: 
+; ON/OFF: 0.
+; FX: 
++CVars=r.MotionBlurQuality=0
+; --- ShowFlag.VisualizeMotionBlur = 0 ---
+; PT: Debug motion blur.
+; EN: Visualize motion blur.
+; ARK: 
+; ON/OFF: 0.
+; FX: 
++CVars=ShowFlag.VisualizeMotionBlur=0
+; --- r.DefaultFeature.MotionBlur = False ---
+; PT: Feature motion blur.
+; EN: Motion blur feature.
+; ARK: 
+; ON/OFF: False.
+; FX: 
++CVars=r.DefaultFeature.MotionBlur=False
+
+; [EN] Attempt brighter drop visibility.
+; [PT] Tentativa melhorar visão do drop.
+;   attempt to fix supply drop
+; --- r.SimpleDynamicLighting = 1 ---
+; PT: Iluminação dinâmica simples.
+; EN: Simple dynamic lighting.
+; ARK: Tentativa fix supply drop.
+; ON/OFF: 1 farm.
+; FX: 
++CVars=r.SimpleDynamicLighting=1
+
+; [EN] Aggressive lighting off — transmitter glow gone.
+; [PT] Luz agressiva off — glow transmitter some.
+; settings related to light / flare / bloom
+; --- ShowFlag.DeferredLighting = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.DeferredLighting=0
+; --- ShowFlag.DirectLighting = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.DirectLighting=0
+; --- ShowFlag.DirectionalLights = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.DirectionalLights=0
+; --- ShowFlag.LightInfluences = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LightInfluences=0
+; --- ShowFlag.LightMapDensity = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LightMapDensity=0
+; --- ShowFlag.LightRadius = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LightRadius=0
+; --- ShowFlag.Lighting = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Lighting=0
+; --- ShowFlag.LpvLightingOnly = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LpvLightingOnly=0
+; --- ShowFlag.PointLights = 0 ---
+; PT: Luzes pontuais.
+; EN: Point lights.
+; ARK: Forge, transmitter glow.
+; ON/OFF: 0 lighting block.
+; FX: 
++CVars=ShowFlag.PointLights=0
+; --- ShowFlag.SkyLighting = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.SkyLighting=0
+; --- ShowFlag.VisualizeLightCulling = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeLightCulling=0
+; --- ShowFlag.SpotLights = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.SpotLights=0
+; --- ShowFlag.StationaryLightOverlap = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.StationaryLightOverlap=0
+; --- ShowFlag.TexturedLightProfiles = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.TexturedLightProfiles=0
+; --- r.LightFunctionQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.LightFunctionQuality=0
+; --- r.LightShaftQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.LightShaftQuality=0
+; --- r.DefaultFeature.LensFlare = False ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.DefaultFeature.LensFlare=False
+; --- r.LensFlareQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.LensFlareQuality=0
+; --- ShowFlag.LensFlares = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LensFlares=0
+; --- r.DefaultFeature.Bloom = False ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.DefaultFeature.Bloom=False
+; --- r.BloomQuality = 0 ---
+; PT: Bloom.
+; EN: Bloom.
+; ARK: Brilho.
+; ON/OFF: 0 múltiplas vezes farm.
+; FX: 
++CVars=r.BloomQuality=0
+
+; [EN] Reflections off.
+; [PT] Reflexos desligados.
+; reflex
+; --- ShowFlag.ReflectionEnvironment = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.ReflectionEnvironment=0
+; --- ShowFlag.ReflectionOverride = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.ReflectionOverride=0
+
+; Shadow
+; --- r.Shadow.CSM.MaxCascades = 1 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.Shadow.CSM.MaxCascades=1
+; --- r.Shadow.CSM.TransitionScale = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.Shadow.CSM.TransitionScale=0
+; --- r.Shadow.DistanceScale = 0.1 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.Shadow.DistanceScale=0.1
+; --- r.Shadow.MaxResolution = 2 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.Shadow.MaxResolution=2
+; --- r.Shadow.MinResolution = 2 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.Shadow.MinResolution=2
+; --- r.Shadow.RadiusThreshold = 0.1 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.Shadow.RadiusThreshold=0.1
+; --- r.ShadowQuality = 0 ---
+; PT: Qualidade sombras.
+; EN: Shadow quality.
+; ARK: Sombras.
+; ON/OFF: 0.
+; FX: 
++CVars=r.ShadowQuality=0
+; --- ShowFlag.DynamicShadows = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.DynamicShadows=0
+; --- ShowFlag.PreviewShadowsIndicator = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.PreviewShadowsIndicator=0
+; --- ShowFlag.ShadowFrustums = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.ShadowFrustums=0
+; --- ShowFlag.ShadowsFromEditorHiddenActors = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.ShadowsFromEditorHiddenActors=0
+
+; [EN] CORE POTATO BLOCK — every line active in farm. Do not delete.
+; [PT] BLOCO POTATO PRINCIPAL — todas as linhas ativas no farm. Não apague.
+;   general stuff
+; --- r.ClearWithExcludeRects = 2 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.ClearWithExcludeRects=2
+; --- r.Quality = 0 ---
+; PT: Preset qualidade global.
+; EN: Global quality.
+; ARK: Potato.
+; ON/OFF: 0.
+; FX: 
++CVars=r.Quality=0
+; --- ShowFloatingDamageText = True ---
+; PT: Números dano flutuante.
+; EN: Floating damage.
+; ARK: DPS.
+; ON/OFF: True ambos.
+; FX: 
++CVars=ShowFloatingDamageText=True
+; --- NearClipPlane = 12.0 ---
+; PT: Clipping perto câmera.
+; EN: Near clip.
+; ARK: Armas na cara.
+; ON/OFF: 12.0.
+; FX: 
++CVars=NearClipPlane=12.0
+; --- ShowFlag.AmbientOcclusion = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.AmbientOcclusion=0
+; --- ShowFlag.AntiAliasing = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.AntiAliasing=0
+; --- ShowFlag.AudioRadius = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.AudioRadius=0
+; --- ShowFlag.BSP = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.BSP=0
+; --- ShowFlag.BSPSplit = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.BSPSplit=0
+; --- ShowFlag.BSPTriangles = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.BSPTriangles=0
+; --- ShowFlag.BillboardSprites = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.BillboardSprites=0
+; --- ShowFlag.Brushes = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Brushes=0
+; --- ShowFlag.BuilderBrush = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.BuilderBrush=0
+; --- ShowFlag.CameraAspectRatioBars = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.CameraAspectRatioBars=0
+; --- ShowFlag.CameraFrustums = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.CameraFrustums=0
+; --- ShowFlag.CameraImperfections = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.CameraImperfections=0
+; --- ShowFlag.CameraInterpolation = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.CameraInterpolation=0
+; --- ShowFlag.CameraSafeFrames = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.CameraSafeFrames=0
+; --- ShowFlag.ColorGrading = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.ColorGrading=0
+; --- ShowFlag.CompositeEditorPrimitives = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.CompositeEditorPrimitives=0
+; --- ShowFlag.Constraints = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Constraints=0
+; --- ShowFlag.Cover = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Cover=0
+; --- ShowFlag.Decals = 0 ---
+; PT: Decalques impacto.
+; EN: Decals.
+; ARK: Buracos de bala.
+; ON/OFF: 0 general.
+; FX: 1 para PvP hits.
++CVars=ShowFlag.Decals=0
+; --- ShowFlag.DepthOfField = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.DepthOfField=0
+; --- ShowFlag.Diffuse = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Diffuse=0
+; --- ShowFlag.DistanceCulledPrimitives = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.DistanceCulledPrimitives=0
+; --- ShowFlag.DistanceFieldAO = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.DistanceFieldAO=0
+; --- ShowFlag.Editor = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Editor=0
+; --- ShowFlag.EyeAdaptation = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.EyeAdaptation=0
+; --- ShowFlag.Game = 0 ---
+; PT: Pass render principal.
+; EN: Main game pass.
+; ARK: Núcleo.
+; ON/OFF: 0 EXTREMO.
+; FX: Não desative em uso real.
++CVars=ShowFlag.Game=0
+; --- ShowFlag.LOD = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LOD=0
+; --- ShowFlag.Landscape = 0 ---
+; PT: Terreno.
+; EN: Landscape.
+; ARK: Chão.
+; ON/OFF: 0 perigoso.
+; FX: 
++CVars=ShowFlag.Landscape=0
+; --- ShowFlag.LargeVertices = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LargeVertices=0
+; --- ShowFlag.LevelColoration = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.LevelColoration=0
+; --- ShowFlag.MeshEdges = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.MeshEdges=0
+; --- ShowFlag.OnScreenDebug = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.OnScreenDebug=0
+; --- ShowFlag.OverrideDiffuseAndSpecular = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.OverrideDiffuseAndSpecular=0
+; --- ShowFlag.Paper2DSprites = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Paper2DSprites=0
+; --- ShowFlag.Particles = 0 ---
+; PT: Partículas.
+; EN: Particles.
+; ARK: Fogo, beer, projéteis.
+; ON/OFF: 0 general stuff ATIVO.
+; FX: Comente linha p/ restaurar FX.
+; NOTE: Removes beer/Plant Z screen FX, fire, muzzle flash — comment this line to restore.
++CVars=ShowFlag.Particles=0
+; --- ShowFlag.Pivot = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Pivot=0
+; --- ShowFlag.PostProcessMaterial = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.PostProcessMaterial=0
+; --- ShowFlag.PostProcessing = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.PostProcessing=0
+; --- ShowFlag.PrecomputedVisibility = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.PrecomputedVisibility=0
+; --- ShowFlag.SelectionOutline = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.SelectionOutline=0
+; --- ShowFlag.SkeletalMeshes = 0 ---
+; PT: Malhas esqueléticas.
+; EN: Skeletal meshes.
+; ARK: Dinos/players.
+; ON/OFF: 0 general.
+; FX: 
++CVars=ShowFlag.SkeletalMeshes=0
+; --- ShowFlag.Snap = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Snap=0
+; --- ShowFlag.Specular = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Specular=0
+; --- ShowFlag.StaticMeshes = 0 ---
+; PT: Malhas estáticas.
+; EN: Static meshes.
+; ARK: Mundo/props.
+; ON/OFF: 0 soft+general.
+; FX: 
++CVars=ShowFlag.StaticMeshes=0
+; --- ShowFlag.StereoRendering = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.StereoRendering=0
+; --- ShowFlag.SubsurfaceScattering = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.SubsurfaceScattering=0
+; --- ShowFlag.TemporalAA = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.TemporalAA=0
+; --- ShowFlag.Tessellation = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Tessellation=0
+; --- ShowFlag.TestImage = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.TestImage=0
+; --- ShowFlag.TextRender = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.TextRender=0
+; --- ShowFlag.Tonemapper = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Tonemapper=0
+; --- ShowFlag.Translucency = 0 ---
+; PT: Translucência.
+; EN: Translucency.
+; ARK: Feixes, vidro.
+; ON/OFF: 0 general.
+; FX: 
++CVars=ShowFlag.Translucency=0
+; --- ShowFlag.VectorFields = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VectorFields=0
+; --- ShowFlag.VertexColors = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VertexColors=0
+; --- ShowFlag.VisualizeAdaptiveDOF = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeAdaptiveDOF=0
+; --- ShowFlag.VisualizeBuffer = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeBuffer=0
+; --- ShowFlag.VisualizeDOF = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeDOF=0
+; --- ShowFlag.VisualizeDistanceFieldAO = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeDistanceFieldAO=0
+; --- ShowFlag.VisualizeHDR = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeHDR=0
+; --- ShowFlag.VisualizeLPV = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeLPV=0
+; --- ShowFlag.VisualizeOutOfBoundsPixels = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeOutOfBoundsPixels=0
+; --- ShowFlag.VisualizeSSR = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeSSR=0
+; --- ShowFlag.VisualizeSenses = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.VisualizeSenses=0
+; --- ShowFlag.Wireframe = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=ShowFlag.Wireframe=0
+; --- bDisablePhysXHardwareSupport = True ---
+; PT: PhysX GPU off.
+; EN: Disable GPU PhysX.
+; ARK: Linux/Proton.
+; ON/OFF: True.
+; FX: 
++CVars=bDisablePhysXHardwareSupport=True
+; --- r.AOTrimOldRecordsFraction = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.AOTrimOldRecordsFraction=0
+; --- r.AmbientOcclusionLevels = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.AmbientOcclusionLevels=0
+; --- r.ClearWithExcludeRects = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.ClearWithExcludeRects=0
+; --- r.CompileShadersForDevelopment = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.CompileShadersForDevelopment=0
+; --- r.DefaultFeature.AmbientOcclusion = False ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.DefaultFeature.AmbientOcclusion=False
+; --- r.DefaultFeature.AntiAliasing = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.DefaultFeature.AntiAliasing=0
+; --- r.DefaultFeature.AutoExposure = False ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.DefaultFeature.AutoExposure=False
+; --- r.DepthOfFieldQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.DepthOfFieldQuality=0
+; --- r.DetailMode = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.DetailMode=0
+; --- r.EarlyZPass = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.EarlyZPass=0
+; --- r.ExposureOffset = 0.3 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.ExposureOffset=0.3
+; --- r.HZBOcclusion = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.HZBOcclusion=0
+; --- r.MaxAnisotropy = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.MaxAnisotropy=0
+; --- r.PostProcessAAQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.PostProcessAAQuality=0
+; --- r.ReflectionEnvironment = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.ReflectionEnvironment=0
+; --- r.SSAOSmartBlur = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.SSAOSmartBlur=0
+; --- r.SSR = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.SSR=0
+; --- r.SSR.Quality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.SSR.Quality=0
+; --- r.SSS.SampleSet = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.SSS.SampleSet=0
+; --- r.SSS.Scale = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.SSS.Scale=0
+; --- r.SceneColorFringe.Max = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.SceneColorFringe.Max=0
+; --- r.SceneColorFringeQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.SceneColorFringeQuality=0
+; --- r.TonemapperQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.TonemapperQuality=0
+; --- r.TriangleOrderOptimization = 1 ---
+; PT: Ordem triângulos.
+; EN: Triangle order opt.
+; ARK: Perf.
+; ON/OFF: 1 manter.
+; FX: 
++CVars=r.TriangleOrderOptimization=1
+; --- r.TrueSkyQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.TrueSkyQuality=0
+; --- r.UpsampleQuality = 0 ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=r.UpsampleQuality=0
+; --- r.ViewDistanceScale = 0 ---
+; PT: Distância visão.
+; EN: View distance.
+; ARK: Render distance.
+; ON/OFF: 0 farm agressivo.
+; FX: 1.0 PvP snipe.
++CVars=r.ViewDistanceScale=0
+
+; LOD for texture groups
+; --- TEXTUREGROUP_Character = (MinLODSize=1,MaxLODSize=4,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Character=(MinLODSize=1,MaxLODSize=4,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_CharacterNormalMap = (MinLODSize=1,MaxLODSize=4,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_CharacterNormalMap=(MinLODSize=1,MaxLODSize=4,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_CharacterSpecular = (MinLODSize=1,MaxLODSize=4,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_CharacterSpecular=(MinLODSize=1,MaxLODSize=4,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_Cinematic = (MinLODSize=1,MaxLODSize=128,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Cinematic=(MinLODSize=1,MaxLODSize=128,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_Effects = (MinLODSize=1,MaxLODSize=128,LODBias=0,MinMagFilter=linear,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Effects=(MinLODSize=1,MaxLODSize=128,LODBias=0,MinMagFilter=linear,MipFilter=point)
+; --- TEXTUREGROUP_EffectsNotFiltered = (MinLODSize=1,MaxLODSize=128,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_EffectsNotFiltered=(MinLODSize=1,MaxLODSize=128,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_Lightmap = (MinLODSize=1,MaxLODSize=8,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Lightmap=(MinLODSize=1,MaxLODSize=8,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_MobileFlattened = (MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_MobileFlattened=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_RenderTarget = (MinLODSize=1,MaxLODSize=128,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_RenderTarget=(MinLODSize=1,MaxLODSize=128,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_Shadowmap = (MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point,NumStreamedMips=3) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Shadowmap=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point,NumStreamedMips=3)
+; --- TEXTUREGROUP_Skybox = (MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Skybox=(MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_Terrain_Heightmap = (MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Terrain_Heightmap=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_Terrain_Weightmap = (MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Terrain_Weightmap=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_UI = (MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_UI=(MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_Vehicle = (MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Vehicle=(MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_VehicleNormalMap = (MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_VehicleNormalMap=(MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_VehicleSpecular = (MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_VehicleSpecular=(MinLODSize=1,MaxLODSize=256,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_Weapon = (MinLODSize=1,MaxLODSize=64,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_Weapon=(MinLODSize=1,MaxLODSize=64,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_WeaponNormalMap = (MinLODSize=1,MaxLODSize=64,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_WeaponNormalMap=(MinLODSize=1,MaxLODSize=64,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_WeaponSpecular = (MinLODSize=1,MaxLODSize=64,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_WeaponSpecular=(MinLODSize=1,MaxLODSize=64,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_World = (MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_World=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_WorldNormalMap = (MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_WorldNormalMap=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+; --- TEXTUREGROUP_WorldSpecular = (MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point) ---
+; PT: Variável gráfica Unreal/ARK (ShowFlag ou r.*).
+; EN: Unreal/ARK graphics variable (ShowFlag or r.*).
+; ARK: 0 usually disables/hides pass; 1 enables. Test in single-player.
+; ON/OFF: Toggle by commenting the +CVars line below.
+; FX: Part of farm 'general stuff' potato preset when =0.
++CVars=TEXTUREGROUP_WorldSpecular=(MinLODSize=1,MaxLODSize=2,LODBias=0,MinMagFilter=aniso,MipFilter=point)
+
+
+; PVP profile uses these values where farm differs (see alternates above).
+; FrameRateCap=240, FrameRateMinimum=144, MinDesiredFrameRate=70
+; MinSmoothedFrameRate=5, MaxSmoothedFrameRate=144
+; ShowFlag.Fog=1  (farm keeps Fog commented/0)
+; ShowFlag.Materials=0  (farm keeps Materials commented)
+; WARNING: .pvp line 125 has broken '+CVars=ShowFlag' — delete or fix manually.
+
+; =============================================================================
+; PVP WINDOWS CVars not duplicated above (general stuff overlap omitted)
+; =============================================================================
+; --- MaxSmoothedFrameRate = 144 ---
+; PT: Limite superior smooth FR.
+; EN: Upper smoothed FR.
+; ARK: bSmoothFrameRate.
+; ON/OFF: 144 [PVP].
+; FX: 
+; PVP-ONLY: pvp=144
+;+CVars=MaxSmoothedFrameRate=144  ; PVP value — uncomment if you want PVP override
+
+; --- MinSmoothedFrameRate = 5 ---
+; PT: Limite inferior smooth FR.
+; EN: Lower smoothed FR.
+; ARK: bSmoothFrameRate.
+; ON/OFF: 5 [PVP only].
+; FX: Comente se não usar smooth.
+; PVP-ONLY: pvp=5
+;+CVars=MinSmoothedFrameRate=5  ; PVP value — uncomment if you want PVP override
+
+; --- ShowFlag.Fog = 1 ---
+; PT: Pass fog engine.
+; EN: Fog pass.
+; ARK: Névoa extra.
+; ON/OFF: FARM comentado/0; PVP=1 ATIVO.
+; FX: Escolha um valor.
+; PVP-ONLY: pvp=1
+;+CVars=ShowFlag.Fog=1  ; PVP value — uncomment if you want PVP override
+
+; --- ShowFlag.Materials = 0 ---
+; PT: Materiais/custom depth Tek.
+; EN: Materials / Tek vision.
+; ARK: Owl, railgun, helmet.
+; ON/OFF: PVP=0 ativo; farm comentado.
+; FX: 0 remove beer blur fix.
+; PVP-ONLY: pvp=0
+;+CVars=ShowFlag.Materials=0  ; PVP value — uncomment if you want PVP override
+
+
+; =============================================================================
+; EXTRA COMMUNITY CVars (optional)
+; Fontes: Pastebin Soft INI, cornernote gist, llbranco farm comments
+; =============================================================================
+;
+; --- ShowFlag.Splines=2 (gist: beams normal) / feixe drop e transmitter ---
+; PT: Valor 2 = visibilidade normal de splines em alguns guias. EN: Value 2 = normal beam visibility.
+;+CVars=ShowFlag.Splines=2
+;
+; --- ShowFlag.GameplayDebug=2 (gist: water + overlays normal) ---
+;+CVars=ShowFlag.GameplayDebug=2
+;
+; --- FX particles competitive ---
+;+CVars=FX.MaxCPUParticlesPerEmitter=8
+;+CVars=FX.MaxCPUParticlesPerEmitter=16
+;+CVars=FX.MaxGPUParticlesPerEmitter=64
+;
+; --- Foliage aggressive (gist) ---
+;+CVars=foliage.CullAll=1
+;
+; --- Atmosphere / volumetric (ConsoleVariables.ini comum) ---
+;+CVars=r.Atmosphere=0
+;+CVars=r.VolumetricFog=0
+;+CVars=r.VolumetricCloud=0
+;+CVars=r.LightShafts=0
+;
+; --- Particle / mesh LOD ---
+;+CVars=r.ParticleLODBias=2
+;+CVars=r.SkeletalMeshLODBias=2
+;+CVars=r.TerrainLODScale=0.5
+;
+; --- Distância PvP normal ---
+;+CVars=r.ViewDistanceScale=1.0
+;
+; =============================================================================
+; ALTERNATES — uncomment ONE per group / descomente UMA por grupo
+; =============================================================================
+;+CVars=FrameRateCap=240
+;+CVars=FrameRateCap=144
+;+CVars=ShowFlag.Fog=0
+;+CVars=ShowFlag.Fog=1
+;+CVars=ShowFlag.Materials=0
+;+CVars=ShowFlag.Materials=1
+;+CVars=r.CustomDepth=0
+;+CVars=ShowFlag.Particles=1
+;+CVars=ShowFlag.Splines=0
+;+CVars=ShowFlag.Splines=1
+;+CVars=ShowFlag.Decals=1
+; =============================================================================
