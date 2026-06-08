@@ -1,2 +1,7 @@
+# arquivos ini padrões para o ark_launcher.sh
+# 
+# linhas iniciadas por # são ignoradas e entendidas como comentário
+#
+# sourcelist por: LLBRANCO
 https://github.com/llbranco/ark_files_and_links/raw/refs/heads/main/BaseDeviceProfiles.ini.farm
 https://github.com/llbranco/ark_files_and_links/raw/refs/heads/main/BaseDeviceProfiles.ini.pvp
