@@ -1,0 +1,2 @@
+https://github.com/llbranco/ark_files_and_links/raw/refs/heads/main/BaseDeviceProfiles.ini.farm
+https://github.com/llbranco/ark_files_and_links/raw/refs/heads/main/BaseDeviceProfiles.ini.pvp
